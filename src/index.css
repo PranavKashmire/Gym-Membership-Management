@@ -1,0 +1,318 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-gray-100 text-gray-900 font-sans antialiased;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    @apply text-2xl font-bold tracking-tight;
+  }
+
+  h2 {
+    @apply text-xl font-semibold;
+  }
+
+  h3 {
+    @apply text-base font-semibold;
+  }
+
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary-400 ring-offset-2 rounded;
+  }
+}
+
+@layer components {
+
+  /* ─── Cards ─────────────────────────────────────── */
+  .card {
+    @apply bg-white rounded-2xl border border-gray-100 shadow-card;
+  }
+
+  .card-hover {
+    @apply hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-200;
+  }
+
+  /* ─── Status Badges ──────────────────────────────── */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md text-xs font-semibold;
+  }
+
+  /* membership status */
+  .badge-active {
+    @apply bg-emerald-100 text-emerald-700;
+  }
+
+  .badge-expiring {
+    @apply bg-amber-100 text-amber-700;
+  }
+
+  .badge-expired {
+    @apply bg-red-100 text-red-700;
+  }
+
+  .badge-frozen {
+    @apply bg-blue-100 text-blue-700;
+  }
+
+  .badge-inactive {
+    @apply bg-gray-100 text-gray-500;
+  }
+
+  /* lead temperature */
+  .badge-hot {
+    @apply bg-orange-100 text-orange-700;
+  }
+
+  .badge-warm {
+    @apply bg-yellow-100 text-yellow-700;
+  }
+
+  .badge-cold {
+    @apply bg-sky-100 text-sky-700;
+  }
+
+  /* payment */
+  .badge-pending {
+    @apply bg-yellow-100 text-yellow-700;
+  }
+
+  .badge-paid {
+    @apply bg-emerald-100 text-emerald-700;
+  }
+
+  .badge-failed {
+    @apply bg-red-100 text-red-700;
+  }
+
+  .badge-refunded {
+    @apply bg-purple-100 text-purple-700;
+  }
+
+  /* program / appointment type pill badges (ref images) */
+  .badge-mg {
+    @apply bg-emerald-100 text-emerald-700 font-bold;
+  }
+
+  /* Mass Gain */
+  .badge-wl {
+    @apply bg-orange-100 text-orange-700 font-bold;
+  }
+
+  /* Weight Loss */
+  .badge-bt {
+    @apply bg-yellow-100 text-yellow-700 font-bold;
+  }
+
+  /* Body Toning */
+  .badge-pt {
+    @apply bg-blue-100 text-blue-700 font-bold;
+  }
+
+  /* Personal Training */
+  .badge-mr {
+    @apply bg-purple-100 text-purple-700 font-bold;
+  }
+
+  /* Membership Renewal */
+  .badge-gym {
+    @apply bg-teal-100 text-teal-700 font-bold;
+  }
+
+  /* Gym Visit */
+
+  /* ─── Buttons ────────────────────────────────────── */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-200 cursor-pointer border-0 select-none;
+  }
+
+  .btn-sm {
+    @apply text-xs px-3.5 py-1.5 h-7;
+  }
+
+  .btn-md {
+    @apply text-sm px-5 py-2 h-9;
+  }
+
+  .btn-lg {
+    @apply text-sm px-6 py-2.5 h-11;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-500 text-white shadow-sm hover:bg-primary-600 hover:-translate-y-px active:translate-y-0 active:bg-primary-700;
+  }
+
+  .btn-secondary {
+    @apply btn bg-white text-primary-600 border border-primary-300 hover:bg-primary-50 hover:border-primary-400;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900;
+  }
+
+  .btn-danger {
+    @apply btn bg-red-500 text-white hover:bg-red-600;
+  }
+
+  .btn-success {
+    @apply btn bg-emerald-500 text-white hover:bg-emerald-600;
+  }
+
+  .btn-gray {
+    @apply btn bg-gray-100 text-gray-700 hover:bg-gray-200;
+  }
+
+  .btn-blue {
+    @apply btn bg-blue-500 text-white hover:bg-blue-600;
+  }
+
+  /* ShapeShift 360 style "Invite" button */
+  .btn-invite {
+    @apply btn bg-blue-500 text-white text-xs px-3.5 py-1.5 h-8 hover:bg-blue-600 shadow-sm;
+  }
+
+  .btn:disabled {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+  }
+
+  /* ─── Tables ─────────────────────────────────────── */
+  .table-header {
+    @apply bg-white text-xs text-gray-400 font-semibold uppercase tracking-wider px-4 py-3 border-b border-gray-100;
+  }
+
+  .table-cell {
+    @apply px-4 py-3.5 text-sm text-gray-800 border-b border-gray-50;
+  }
+
+  .table-row {
+    @apply hover:bg-gray-50/70 transition-colors cursor-pointer;
+  }
+
+  /* ─── Form inputs ────────────────────────────────── */
+  .input {
+    @apply w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 bg-white focus:border-primary-400 focus:ring-2 focus:ring-primary-100 focus:outline-none transition-colors;
+  }
+
+  .input-error {
+    @apply border-red-400 focus:border-red-500 focus:ring-red-100;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-gray-600 mb-1.5;
+  }
+
+  /* ─── Sidebar nav ────────────────────────────────── */
+  /* Icon sidebar (narrow, icon + label stacked) */
+  .sidebar-item {
+    @apply flex flex-col items-center gap-1 px-2 py-2.5 rounded-xl text-gray-400 hover:bg-gray-100 hover:text-gray-700 transition-all duration-150 cursor-pointer w-full;
+  }
+
+  .sidebar-item-active {
+    @apply bg-primary-50 text-primary-600 !important;
+  }
+
+  /* Wide sidebar text nav (legacy, kept for any remaining usage) */
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 mx-2 rounded-xl text-sm font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-800 transition-all duration-150 cursor-pointer;
+  }
+
+  .nav-item-active {
+    @apply bg-primary-50 text-primary-600 font-semibold;
+  }
+
+  /* ─── Metric / KPI cards ─────────────────────────── */
+  .metric-card {
+    @apply card p-5 flex items-start gap-4;
+  }
+
+  .metric-icon {
+    @apply w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0;
+  }
+
+  /* ─── Skeleton ───────────────────────────────────── */
+  .skeleton {
+    @apply bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100 bg-[length:200%_100%] animate-pulse rounded-xl;
+  }
+
+  /* ─── Section header ─────────────────────────────── */
+  .section-title {
+    @apply text-sm font-semibold text-gray-800;
+  }
+
+  .section-subtitle {
+    @apply text-xs text-gray-400 mt-0.5;
+  }
+
+  /* ─── Tabs (filter row) ──────────────────────────── */
+  .tab-active {
+    @apply text-primary-600 font-semibold border-b-2 border-primary-500;
+  }
+
+  .tab-inactive {
+    @apply text-gray-400 hover:text-gray-600 border-b-2 border-transparent;
+  }
+}
+
+/* ─── Custom scrollbar ──────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* ─── Range input ───────────────────────────────────── */
+input[type="range"] {
+  @apply accent-primary-500;
+}
+
+/* ─── Page transitions ──────────────────────────────── */
+.page-enter {
+  animation: fadeSlideIn 0.2s ease forwards;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Toast ─────────────────────────────────────────── */
+.toast-container {
+  @apply fixed top-4 right-4 z-50 flex flex-col gap-2;
+}
+
+/* ─── Kanban ─────────────────────────────────────────── */
+.kanban-ghost {
+  @apply opacity-40;
+}
+
+/* ─── Action dropdown ────────────────────────────────── */
+.action-dropdown {
+  @apply flex items-center gap-1 px-2.5 py-1 text-xs font-medium text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors cursor-pointer;
+}
