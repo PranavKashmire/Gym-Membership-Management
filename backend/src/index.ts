@@ -4,7 +4,9 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import path from 'path';
-dotenv.config({ path: path.join(__dirname, '../.env') });
+if (process.env.NODE_ENV !== 'production') {
+    dotenv.config({ path: path.join(__dirname, '../.env') });
+}
 
 import { errorHandler } from './middleware/errorHandler';
 import authRoutes from './routes/auth';
