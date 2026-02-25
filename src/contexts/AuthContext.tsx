@@ -18,12 +18,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     // On mount: restore session from localStorage token
     useEffect(() => {
-        const storedUser = localStorage.getItem('fitcore_user');
-        const token = localStorage.getItem('fitcore_token');
-        if (storedUser && token) {
-            setUser(JSON.parse(storedUser));
+        try {
+            const storedUser = localStorage.getItem('fitcore_user');
+            const token = localStorage.getItem('fitcore_token');
+            if (storedUser && token) {
+                setUser(JSON.parse(storedUser));
+            }
+        } catch (error) {
+            console.error('Failed to restore auth session:', error);
+            localStorage.removeItem('fitcore_user');
+            localStorage.removeItem('fitcore_token');
+        } finally {
+            setIsLoading(false);
         }
-        setIsLoading(false);
     }, []);
 
     const login = useCallback(async (
